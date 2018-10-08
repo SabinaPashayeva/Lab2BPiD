@@ -1,0 +1,44 @@
+﻿body, input {
+    font-size: 12pt;
+}
+
+    input[type=text] {
+        width: 45%;
+        padding: 12px 20px;
+        margin: 0 27%;
+        box-sizing: border-box;
+        border: none;
+        background-color: #009196;
+        border-radius: 6px;
+        color: white;
+    }
+
+    input[type=button], input[type=submit], input[type=reset] {
+        border-radius: 6px;
+        background-color: white;
+        color: #555555;
+        border: 2px solid #cccccc;
+        padding: 16px 32px;
+        text-decoration: none;
+        -webkit-transition-duration: 0.4s;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+#btnLogin:hover, #sendmessage:hover {
+    background-color: #e7e7e7;
+}
+
+#box {
+    margin-top: 2%;
+    display: flex;
+}
+
+#chatroom, #chatusers {
+    flex: 1;
+    padding: 1em;
+}
+
+#chatroom {
+    border-right: 1px dotted #009196;
+}
