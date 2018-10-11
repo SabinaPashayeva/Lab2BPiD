@@ -9,5 +9,7 @@ namespace Lab2BPiD.Models
     {
         public string ConnectionId { get; set; }
         public string Name { get; set; }
+
+        //public Dictionary<string, string> data = new Dictionary<string, string>();
     }
 }

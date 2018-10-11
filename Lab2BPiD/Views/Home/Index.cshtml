@@ -1,25 +1,13 @@
-﻿@{
-    Layout = null;
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <title>Chat-room</title>
 </head>
 <body>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <!--Ссылка на библиотеку SignalR -->
     <script src="~/Scripts/jquery.signalR-2.3.0.min.js"></script>
-    <!--Ссылка на автоматически сгенерированный скрипт хаба SignalR -->
     <script src="~/signalr/hubs"></script>
-
-    <script type="text/javascript">
-        $(function () {
-            // Declare a proxy to reference the hub.
-            var chat = $.connection.chatHub;
-            console.log(chat);
-        })
-    </script>
+    <script src="~/Scripts/jsencrypt.min.js"></script>
 
     <h2 align="center" style="color: #555555;">Chat</h2>
 
@@ -50,6 +38,10 @@
         <input id="hdId" type="hidden" />
         <input id="username" type="hidden" />
     </div>
+    <script src="~/Scripts/jsbn.js"></script>
+    <script src="~/Scripts/jsbn2.js"></script>
+    <script src="~/Scripts/rsa.js"></script>
+    <script src="~/Scripts/rng.js"></script>
     <script src="~/Scripts/util.js"></script>
 
 </body>
