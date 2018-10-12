@@ -6,10 +6,18 @@
     var crypt = new JSEncrypt({ default_key_size: 2048 });
     var serverPublicKey;
     var e, n;
-    
+    var encryptedClientMessage;
+    var encryptedServerMessage;
+
     //Getting message
     chat.client.addMessage = function (name, message) {
-        message = crypt.decrypt(message);
+        if (name == $('#username').val()) {
+            $('#encryptedBox').show();
+            encryptedServerMessage = message;
+        }
+        else { $('#encryptedBox').hide(); }
+
+        message = crypt.decrypt(message); 
         
         $('#chatroom').append('<p><b>' + htmlEncode(name)
             + '</b>: ' + htmlEncode(message) + '</p>');
@@ -22,6 +30,7 @@
     chat.client.onConnected = function (id, userName, allUsers) {
 
         $('#loginBlock').hide();
+        $('#encryptedBox').hide();
         $('#chatBody').show();
         $('#hdId').val(id);
         $('#username').val(userName);
@@ -52,9 +61,18 @@
             var k = new RSAKey();
             k.setPublic(base64ToHex(serverPublicKey[1]), "010001");
             var k1 = k.encrypt($('#message').val());
+            encryptedClientMessage = hexToBase64(k1);
 
             chat.server.send($('#username').val(), hexToBase64(k1));
             $('#message').val('');
+        });
+
+        $('#client').click(function () {
+            alert(encryptedClientMessage);
+        });
+
+        $('#server').click(function () {
+            alert(encryptedServerMessage);
         });
 
         // login processing
